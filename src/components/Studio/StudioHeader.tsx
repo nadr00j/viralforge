@@ -12,10 +12,10 @@ import { exportManifestJSON } from '@/lib/export';
 import { formatTimestamp } from '@/lib/utils';
 
 interface StudioHeaderProps {
-  channelId: string;
+  channelId?: string;
 }
 
-export default function StudioHeader({ channelId }: StudioHeaderProps) {
+export default function StudioHeader({ channelId }: StudioHeaderProps = {}) {
   const router = useRouter();
   const { manifest, isSaving, lastSaved, saveManifest } = useManifest();
   
@@ -30,18 +30,20 @@ export default function StudioHeader({ channelId }: StudioHeaderProps) {
       <div className="flex items-center justify-between">
         {/* Left - Breadcrumb */}
         <div className="flex items-center gap-4">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => router.push(`/channel/${channelId}`)}
-            leftIcon={
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            }
-          >
-            Configurações
-          </Button>
+          {channelId && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => router.push(`/channel/${channelId}`)}
+              leftIcon={
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              }
+            >
+              Configurações
+            </Button>
+          )}
           
           <div className="flex items-center gap-2">
             <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

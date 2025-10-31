@@ -2,7 +2,7 @@
  * Dados mock para desenvolvimento e testes
  */
 
-import type { VFManifest, VFScene, ChannelConfig } from './types';
+import type { VFManifest, VFScene, ChannelConfig, Idea } from './types';
 import { generateId, generateSeed } from './utils';
 
 // ============================================================================
@@ -112,6 +112,73 @@ export const demoManifest: VFManifest = {
 };
 
 // ============================================================================
+// IDEIAS MOCK
+// ============================================================================
+
+export const mockIdeas: Idea[] = [
+  {
+    id: 'idea_1',
+    title: '5 Invenções Tecnológicas que Explodiram em 2025',
+    justification: 'Alto apelo para nicho tech, combina curiosidade com tendências atuais. Formato top-list funciona muito bem para shorts.',
+    keyPoints: [
+      'IA revolucionária que aprende sozinha sem supervisão humana',
+      'Robótica avançada para medicina com cirurgias autônomas',
+      'Chips neurais acessíveis para interface cérebro-computador',
+    ],
+    interestScore: 92,
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 'idea_2',
+    title: 'O Futuro da Realidade Virtual: Vivendo em Mundos Digitais',
+    justification: 'Tema evergreen com muito potencial viral. VR está crescendo exponencialmente e gera muita curiosidade.',
+    keyPoints: [
+      'Metaverso se tornando realidade com headsets acessíveis',
+      'Trabalho remoto em ambientes VR imersivos',
+      'Socialização digital superando interações físicas',
+    ],
+    interestScore: 88,
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 'idea_3',
+    title: 'Como a IA Está Mudando a Forma Como Trabalhamos',
+    justification: 'Tema atual e relevante. Todos querem saber como a IA impactará seus empregos.',
+    keyPoints: [
+      'Automação de tarefas repetitivas liberando tempo criativo',
+      'Assistentes IA personalizados para cada profissão',
+      'Nova economia baseada em colaboração humano-IA',
+    ],
+    interestScore: 85,
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 'idea_4',
+    title: 'Tecnologias Impossíveis que Agora São Reais',
+    justification: 'Formato "mind-blowing" que gera muito engajamento. Perfeito para o nicho tech.',
+    keyPoints: [
+      'Teletransporte quântico de informações',
+      'Hologramas 3D palpáveis com feedback tátil',
+      'Baterias que carregam em 1 minuto e duram 1 semana',
+    ],
+    interestScore: 90,
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 'idea_5',
+    title: 'O Lado Obscuro da Tecnologia Moderna',
+    justification: 'Abordagem contrária gera curiosidade. Público tech gosta de conteúdo crítico e consciente.',
+    keyPoints: [
+      'Privacidade digital sendo completamente eliminada',
+      'Dependência tecnológica afetando saúde mental',
+      'Desigualdade digital criando novas classes sociais',
+    ],
+    interestScore: 82,
+    createdAt: new Date().toISOString(),
+  },
+];
+
+// ============================================================================
 // CANAIS DEMO
 // ============================================================================
 
@@ -183,6 +250,27 @@ export const demoChannels: ChannelConfig[] = [
           { endpoint: 'ideas', timestamp: new Date(Date.now() - 3600000).toISOString(), status: 'success' },
           { endpoint: 'script', timestamp: new Date(Date.now() - 7200000).toISOString(), status: 'success' },
         ],
+      },
+    ],
+    
+    videoStyles: [
+      {
+        id: 'shorts-ia',
+        name: 'Shorts IA Narrado',
+        description: 'Vídeos curtos com narração IA e visuais gerados',
+        format: 'shorts',
+        withNarration: true,
+        typicalDuration: 45,
+        n8nWebhookBase: 'http://localhost:5678/webhook/ch1/shorts-ia',
+      },
+      {
+        id: 'shorts-hibrido',
+        name: 'Shorts Híbrido',
+        description: 'Vídeos curtos com stock footage e IA',
+        format: 'shorts',
+        withNarration: true,
+        typicalDuration: 30,
+        n8nWebhookBase: 'http://localhost:5678/webhook/ch1/shorts-hybrid',
       },
     ],
     

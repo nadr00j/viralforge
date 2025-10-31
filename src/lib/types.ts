@@ -137,6 +137,58 @@ export type ChannelConfig = {
   
   created_at: string;
   updated_at: string;
+  
+  videoStyles?: VideoStyle[];
+};
+
+// ============================================================================
+// ESTILOS DE VÍDEO
+// ============================================================================
+
+export type VideoStyle = {
+  id: string;
+  name: string;
+  description: string;
+  format: 'shorts' | 'long-form' | 'story';
+  withNarration: boolean;
+  typicalDuration: number;
+  n8nWebhookBase: string;
+};
+
+// ============================================================================
+// WORKFLOW DE PRODUÇÃO
+// ============================================================================
+
+export type Idea = {
+  id: string;
+  title: string;
+  justification: string;
+  keyPoints: string[];
+  interestScore: number;
+  createdAt: string;
+};
+
+export type Script = {
+  id: string;
+  ideaId: string;
+  title: string;
+  beats: { t: number; text: string }[];
+  fullText: string;
+  estimatedDuration: number;
+  createdAt: string;
+};
+
+export type ProductionWorkflowState = {
+  id: string;
+  currentStep: number;
+  channelId: string | null;
+  videoStyleId: string | null;
+  ideas: Idea[];
+  selectedIdeaId: string | null;
+  script: Script | null;
+  manifest: VFManifest | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 // ============================================================================

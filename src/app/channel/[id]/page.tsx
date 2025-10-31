@@ -14,6 +14,7 @@ import IdentityTab from '@/components/ChannelConfig/IdentityTab';
 import VoiceStyleTab from '@/components/ChannelConfig/VoiceStyleTab';
 import ReferencesTab from '@/components/ChannelConfig/ReferencesTab';
 import WebhooksTab from '@/components/ChannelConfig/WebhooksTab';
+import VideoStylesTab from '@/components/ChannelConfig/VideoStylesTab';
 
 export default function ChannelConfigPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -105,6 +106,13 @@ export default function ChannelConfigPage({ params }: { params: { id: string } }
               </svg>
               Webhooks
             </TabsTrigger>
+            
+            <TabsTrigger value="video-styles">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              Estilos de Vídeo
+            </TabsTrigger>
           </TabsList>
           
           <TabsContent value="identity">
@@ -121,6 +129,10 @@ export default function ChannelConfigPage({ params }: { params: { id: string } }
           
           <TabsContent value="webhooks">
             <WebhooksTab />
+          </TabsContent>
+          
+          <TabsContent value="video-styles">
+            <VideoStylesTab />
           </TabsContent>
         </Tabs>
       </div>
