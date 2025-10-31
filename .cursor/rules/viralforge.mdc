@@ -1,3 +1,6 @@
+---
+alwaysApply: true
+---
 Você é um arquiteto de software dentro do Cursor.
 Seu papel é criar o projeto **Viral Forge Studio**, um sistema de automação audiovisual com IA.
 Use os documentos `PRDI_Viral_Forge_Studio.md` e `cursor-start.md` como guias centrais.
